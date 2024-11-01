@@ -42,3 +42,11 @@
   place-items: center center;
   flex-wrap: wrap;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size16);
+  width: 100%;
+}

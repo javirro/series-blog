@@ -1,18 +1,25 @@
 import PokemonsList from '@/components/Pokemon/PokemonList'
 import styles from '../app.module.css'
-import { Suspense } from 'react'
+import Link from 'next/link'
 
-const PokemonPage = () => {
+const Page = async ({ searchParams }: { searchParams: { page: string } }) => {
+  const pageNumber = (await parseInt(searchParams.page)) || 1
+  return <PokemonPage page={pageNumber} />
+}
+
+export default Page
+
+const PokemonPage = ({ page }: { page: number }) => {
   return (
     <section className={styles.page}>
-      <h1>Pokemon</h1>
+      <h1>Pokemon List</h1>
       <div className={styles.grid}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <PokemonsList />
-        </Suspense>
+        <PokemonsList page={page} />
       </div>
+      <section className={styles.pagination}>
+        <Link href={`/pokemon?page=${page - 1}`}>Previous</Link>
+        <Link href={`/pokemon?page=${page + 1}`}>Next</Link>
+      </section>
     </section>
   )
 }
-
-export default PokemonPage

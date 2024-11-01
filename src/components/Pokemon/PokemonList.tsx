@@ -1,14 +1,12 @@
-import { URLS } from '@/dataFetching/urls'
-import { PokemonList } from '@/types/types'
 import PokemonItem, { PokemonItemSkeleton } from './PokemonItem'
 import { Suspense } from 'react'
-
+import { getPokemonList } from '@/dataFetching/getPokemonList'
 import './pokemonList.css'
 
-
-const PokemonsList = async () => {
-  const pokemons = await fetch(URLS['pokemon'])
-  const data: PokemonList = await pokemons.json()
+const PokemonsList = async ({ page }: { page: number }) => {
+  const offset = (page - 1) * 20
+  const data = await getPokemonList(offset)
+  console.log(data)
   return (
     <div className="pokemon-list">
       {data.results.map((pokemon) => (
