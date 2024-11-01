@@ -5,11 +5,10 @@ import './pokemonList.css'
 
 const PokemonsList = async ({ page }: { page: number }) => {
   const offset = (page - 1) * 20
-  const data = await getPokemonList(offset)
-  console.log(data)
+  const pokemonData = await getPokemonList(offset)
   return (
     <div className="pokemon-list">
-      {data.results.map((pokemon) => (
+      {pokemonData.results.map((pokemon) => (
         <Suspense key={pokemon.name} fallback={<PokemonItemSkeleton pokemonName={pokemon.name} />}>
           <PokemonItem key={pokemon.name} pokemonName={pokemon.name} />
         </Suspense>
@@ -19,3 +18,4 @@ const PokemonsList = async ({ page }: { page: number }) => {
 }
 
 export default PokemonsList
+

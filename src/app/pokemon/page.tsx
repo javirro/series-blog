@@ -3,13 +3,7 @@ import styles from '../app.module.css'
 import Link from 'next/link'
 
 const Page = async ({ searchParams }: { searchParams: { page: string } }) => {
-  const pageNumber = (await parseInt(searchParams.page)) || 1
-  return <PokemonPage page={pageNumber} />
-}
-
-export default Page
-
-const PokemonPage = ({ page }: { page: number }) => {
+  const page = (await parseInt(searchParams.page)) || 1
   return (
     <section className={styles.page}>
       <h1>Pokemon List</h1>
@@ -23,3 +17,8 @@ const PokemonPage = ({ page }: { page: number }) => {
     </section>
   )
 }
+
+export default Page
+
+
+
