@@ -1,0 +1,1 @@
+export type Series = "pokemon" | "digimon" | "dragonball"
