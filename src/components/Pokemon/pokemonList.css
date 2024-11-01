@@ -1,0 +1,30 @@
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  gap: var(--size24);
+  place-items: center;
+  .pokemon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--size16);
+    padding: var(--size16);
+    height: 200px;
+    width: 100%;
+    border: 1px solid var(--foreground);
+    border-radius: var(--size8);
+    cursor: pointer;
+    img {
+      width: var(--size120);
+      height: var(--size120);
+    }
+    h4 {
+      font-size: var(--size20);
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+
+}

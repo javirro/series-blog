@@ -1,7 +1,7 @@
 
 import BlogCard from '@/components/BlogCard/BlogCard'
 import styles from './app.module.css'
-import { Series } from '@/types'
+import { Series } from '@/types/types'
 
 export default function Home() {
   const series: Series[] = ["pokemon", "digimon"]
