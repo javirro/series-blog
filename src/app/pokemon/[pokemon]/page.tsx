@@ -1,14 +1,25 @@
 import PokemonIndividual from '@/components/Pokemon/PokemonIndividual/PokemonIndividual'
 
+import styles from './pokemon.module.css'
 
 interface PageProps {
   params: Promise<{ pokemon: string }>
 }
-const PokemonIndividualPage = async  ({params}: PageProps) => {
+
+export async function generateMetadata({ params }: PageProps) {
+  const pokemon = (await params).pokemon
+  return {
+    title: `Pokemon: ${pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}`,
+    description: `Information about ${pokemon}`,
+    keywords: ['pokemon', pokemon],
+  }
+}
+
+const PokemonIndividualPage = async ({ params }: PageProps) => {
   const pokemon = (await params).pokemon
   return (
-    <div>
-      <h1>Pokemon Individual Page {pokemon}</h1>
+    <div className={styles.container}>
+      <h1>{pokemon}</h1>
       <PokemonIndividual pokemonName={pokemon} />
     </div>
   )

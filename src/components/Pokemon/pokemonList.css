@@ -1,6 +1,7 @@
 .pokemon-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   gap: var(--size24);
   place-items: center;
@@ -9,16 +10,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: var(--size16);
+    gap: var(--size8);
     padding: var(--size16);
-    height: 200px;
-    width: 100%;
+    height: var(--size300);
+    width: var(--size300);
     border: 1px solid var(--foreground);
     border-radius: var(--size8);
     cursor: pointer;
     img {
-      width: var(--size120);
-      height: var(--size120);
+      width: 70%;
     }
     h4 {
       font-size: var(--size20);
@@ -26,5 +26,4 @@
       text-transform: capitalize;
     }
   }
-
 }

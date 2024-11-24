@@ -18,13 +18,14 @@ const Page = async ({ searchParams }: PageProps) => {
   const page = parseInt(searchP.page) || 1
   return (
     <section className={styles.page}>
-      <h1>Pokemon List</h1>
+      <h1>Pokedex</h1>
       <div className={styles.grid}>
         <PokemonsList page={page} />
       </div>
       <section className={styles.pagination}>
-        <Link href={`/pokemon?page=${page - 1}`}>Previous</Link>
-        <Link href={`/pokemon?page=${page + 1}`}>Next</Link>
+        <Link href={`/pokemon?page=${page - 1}`} className={styles.btn}>Previous</Link>
+        <span>Page {page}</span>
+        <Link href={`/pokemon?page=${page + 1}`} className={styles.btn}>Next</Link>
       </section>
     </section>
   )

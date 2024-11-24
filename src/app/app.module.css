@@ -50,3 +50,17 @@
   gap: var(--size16);
   width: 100%;
 }
+
+.btn {
+  padding: var(--size12) var(--size24);
+  border: none;
+  border-radius: var(--size8);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: var(--size16);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
