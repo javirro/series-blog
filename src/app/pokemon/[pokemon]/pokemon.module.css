@@ -2,8 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   width: 100%;
-  gap: var(--size12);
+  gap: var(--size24);
+  padding-top: var(--size40);
+}
+
+.title {
+  font-size: var(--size50);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 var(--size8) rgba(255, 97, 97, 0.7);
 }

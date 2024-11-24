@@ -10,3 +10,33 @@
   box-shadow: 0 0 var(--size12) rgba(0, 0, 0, 0.1);
   width: 40%;
 }
+
+.pokeImg {
+  width: 40%;
+}
+
+.dataBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--size12);
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size8);
+  width: 20%;
+  border-radius: var(--size6);
+  border: 1px solid rgba(255, 97, 97, 0.7);
+  padding: var(--size8);
+}
+
+.text {
+  font-size: var(--size20);
+  font-weight: 700;
+}

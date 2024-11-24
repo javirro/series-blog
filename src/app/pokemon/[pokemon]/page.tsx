@@ -19,7 +19,7 @@ const PokemonIndividualPage = async ({ params }: PageProps) => {
   const pokemon = (await params).pokemon
   return (
     <div className={styles.container}>
-      <h1>{pokemon}</h1>
+      <h1 className={styles.title}>{pokemon}</h1>
       <PokemonIndividual pokemonName={pokemon} />
     </div>
   )
