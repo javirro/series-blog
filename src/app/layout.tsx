@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Navbar from '@/components/Navbar/Navbar'
 import './globals.css'
+import Script from 'next/script'
 
 
 const geistSans = localFont({
@@ -9,11 +10,7 @@ const geistSans = localFont({
   variable: '--font-geist-sans',
   weight: '100 900',
 })
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-})
+
 
 export const metadata: Metadata = {
   title: 'Series Blog',
@@ -27,7 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            <head>
+        <Script
+          src="https://telegram.org/js/telegram-web-app.js"
+          strategy="beforeInteractive" // Load it before the main app runs
+        />
+      </head>
+      <body className={`${geistSans.variable}`}>
         <Navbar />
         {children}
       </body>
