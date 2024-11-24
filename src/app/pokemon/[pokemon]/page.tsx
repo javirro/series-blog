@@ -1,6 +1,7 @@
 import PokemonIndividual from '@/components/Pokemon/PokemonIndividual/PokemonIndividual'
 
 import styles from './pokemon.module.css'
+import { getPokemonList } from '@/dataFetching/getPokemonList'
 
 interface PageProps {
   params: Promise<{ pokemon: string }>
@@ -13,6 +14,17 @@ export async function generateMetadata({ params }: PageProps) {
     description: `Information about ${pokemon}`,
     keywords: ['pokemon', pokemon],
   }
+}
+
+export async function generateStaticParams() {
+  const offset = 0
+  const limit = 200
+  const pokemons = await getPokemonList(offset, limit)
+  const params: { pokemon: string }[] = pokemons.results.map((pokemon) => ({
+    pokemon: pokemon.name,
+  }))
+
+  return params
 }
 
 const PokemonIndividualPage = async ({ params }: PageProps) => {
