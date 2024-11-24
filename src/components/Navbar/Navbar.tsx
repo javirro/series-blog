@@ -5,12 +5,6 @@ import { images } from '@/images'
 import Image from 'next/image'
 import useTelegramUser from '@/hooks/useTelegramUser'
 
-import dynamic from 'next/dynamic'
- 
-const DynamicComponentWithNoSSR = dynamic(
-  () => import('../components/BrowserOnlyComponent'),
-  { ssr: false }
-)
 import './navbar.css'
 
 
@@ -28,5 +22,7 @@ const Navbar = () => {
     </nav>
   )
 }
+
+
 
 export default Navbar
