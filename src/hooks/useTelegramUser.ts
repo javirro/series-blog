@@ -15,6 +15,7 @@ const useTelegramUser = (): TelegramUser | null => {
   console.log({ TelegramUser: user })
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     if (WebApp.initDataUnsafe.user) {
       setUser(WebApp.initDataUnsafe.user as TelegramUser)
     }
