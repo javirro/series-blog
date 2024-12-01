@@ -1,6 +1,7 @@
 import PokemonIndividual from '@/components/Pokemon/PokemonIndividual/PokemonIndividual'
 
 import styles from './pokemon.module.css'
+import { cookies } from 'next/headers'
 // import { getPokemonList } from '@/dataFetching/getPokemonList'
 
 interface PageProps {
@@ -29,6 +30,8 @@ export async function generateMetadata({ params }: PageProps) {
 
 const PokemonIndividualPage = async ({ params }: PageProps) => {
   const pokemon = (await params).pokemon
+  const cookiesStore = await cookies()
+  console.log(cookiesStore)
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{pokemon}</h1>
